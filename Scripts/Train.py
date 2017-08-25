@@ -1,3 +1,5 @@
+import DownloadData
+
 from keras.applications import VGG16
 import os
 import DataHandler as dh
@@ -5,17 +7,17 @@ import BaseModel as bm
 from keras.models import Model
 
 DATA_DIR = os.path.abspath("../data")
-IMAGE_TEMP_DIR = os.path.join(DATA_DIR, "test")
-IMAGE_DIR = os.path.join(DATA_DIR, "holiday-photos")
+IMAGE_TEMP_DIR = os.path.join(DATA_DIR, "tmp")
+IMAGE_DIR = os.path.join(DATA_DIR, "images", "jpg")
 IM_SIZE = 224
 EPOCHS = 20
 BATCH_SIZE = 32
 
 print('Creating triples...')
-triples = dh.create_image_triples(IMAGE_TEMP_DIR)
+triples = dh.create_image_triples(DATA_DIR)
 
 print('Loading images...')
-lhs, rhs, y = dh.load_image_triplets(image_dir=IMAGE_TEMP_DIR,
+lhs, rhs, y = dh.load_image_triplets(image_dir=DATA_DIR,
                                   image_triples=triples,
                                   image_size=IM_SIZE, shuffle=True)
 print('y', y.shape)
