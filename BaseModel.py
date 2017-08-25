@@ -1,6 +1,6 @@
 from keras import backend as K
 from keras.layers.core import Activation, Dense, Dropout, Lambda
-import sys
+import os
 
 def cosine_distance(vecs, normalize=False):
     x, y = vecs

@@ -1,5 +1,9 @@
 import DownloadData
 
+# pos + pos -> 1
+# pos + neg -> 0
+
+
 from keras.applications import VGG16
 import os
 import DataHandler as dh
@@ -8,6 +12,7 @@ from keras.models import Model
 
 DATA_DIR = os.path.abspath("data")
 IMAGE_TEMP_DIR = os.path.join(DATA_DIR, "tmp")
+MODEL_DIR = os.path.join(DATA_DIR, "Models")
 IMAGE_DIR = os.path.join(DATA_DIR, "images", "jpg")
 IM_SIZE = 224
 EPOCHS = 20
@@ -49,7 +54,24 @@ model.summary()
 
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
-model.fit([lhs, rhs], y, epochs=EPOCHS, batch_size=BATCH_SIZE)
-# pos + pos -> 1
-# pos + neg -> 0
+model.fit([lhs, rhs], y, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_split=0.2)
 
+if not os.path.isdir(MODEL_DIR):
+    os.makedirs(MODEL_DIR)
+    print('Model directory created!')
+
+# serialize model to json
+model_json = model.to_json()
+model_id = "trained"
+# Set paths
+model_name = model_id  + ".json"
+weights_name = model_id  + ".h5"
+model_path = os.path.join(MODEL_DIR, model_name)
+weights_path = os.path.join(MODEL_DIR, weights_name)
+
+with open(model_path, "w") as json_file:
+    json_file.write(model_json)
+
+model.save_weights(weights_path)
+
+print('Model Saved')
