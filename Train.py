@@ -14,10 +14,10 @@ EPOCHS = 20
 BATCH_SIZE = 32
 
 print('Creating triples...')
-triples = dh.create_image_triples(DATA_DIR)
+triples = dh.create_image_triples(IMAGE_DIR)
 
 print('Loading images...')
-lhs, rhs, y = dh.load_image_triplets(image_dir=DATA_DIR,
+lhs, rhs, y = dh.load_image_triplets(image_dir=IMAGE_DIR,
                                   image_triples=triples,
                                   image_size=IM_SIZE, shuffle=True)
 print('y', y.shape)
