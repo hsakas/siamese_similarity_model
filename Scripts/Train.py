@@ -6,7 +6,7 @@ import DataHandler as dh
 import BaseModel as bm
 from keras.models import Model
 
-DATA_DIR = os.path.abspath("../data")
+DATA_DIR = os.path.abspath("data")
 IMAGE_TEMP_DIR = os.path.join(DATA_DIR, "tmp")
 IMAGE_DIR = os.path.join(DATA_DIR, "images", "jpg")
 IM_SIZE = 224

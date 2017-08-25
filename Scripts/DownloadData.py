@@ -3,7 +3,8 @@ import os
 import tarfile
 
 
-DATA_DIR = os.path.abspath("../data")
+DATA_DIR = os.path.abspath("data")
+print('data dir', DATA_DIR)
 
 if not os.path.isdir(DATA_DIR):
     os.makedirs(DATA_DIR)
