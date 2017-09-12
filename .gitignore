@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+/data/images/**
+.idea/misc.xml
+.idea/modules.xml
+.idea/siamese_similarity_model.iml
+.idea/workspace.xml
+
+__pycache__/
+data/Models/
+data/jpg1.tar.gz
+data/vgg16-eval-vectors.tsv
+data/vgg16-vectors.tsv
+
