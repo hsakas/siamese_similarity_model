@@ -12,3 +12,5 @@ data/jpg1.tar.gz
 data/vgg16-eval-vectors.tsv
 data/vgg16-vectors.tsv
 
+.vscode
+

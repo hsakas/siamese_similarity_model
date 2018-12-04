@@ -1,4 +1,4 @@
-# siamese_similarity_model
+# Siamese Similarity Model
 A Siamese similarity model for image similarity
 
-This project is currently unmaintained and is open for modification. Please feel free to fork it and use the project as pleased. 
+WIP ( Implementation in Pytorch 0.4.1 )
